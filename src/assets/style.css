@@ -201,6 +201,7 @@ CARDS
   transform: translate(-50%, -50%);
   /* O transform na img serve para puxar a img de lado e para cima para que ele centralize
   no meio da minha div e não fique sendo cortada 
+  Detalhe: essa img tem bordas de cor preta e então tiramos as bordas com css e não precisou cortar a img para retirada das bordas
   para ver como se comporta todas as propriedade, inspeciona o devtools e ver como cada um age, debuggando um por uma
   */
 }

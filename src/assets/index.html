@@ -80,9 +80,22 @@ q talvez não seja alterado.
     <main>
       <section class="cards">
         <div class="card">
-          <div class="image">
+            <!-- Picture é um container usado para especificar múltiplos elementos source ou para especificar várias
+            fotos com seus tamanhos específicos, dessa forma se estivermos em um celular de menor resolução
+            podemos colocar uma img menor, o celular não precisará ter q ler uma foto com resolução alta
+            definimos a resolução da viewport dentro media="(min-width: 10px)", a última img abaixo funciona como
+            um fall back, se tudo der errada cairá nela
+
+            Coloquei uma img diferente para tamanho da viewport para que pudesse ver essa transição com precisão
+            -->
+          <picture class="image" alt="Imagem">
+            <source media="(min-width: 768px)" srcset="https://i.ytimg.com/vi/ghTrp1x_1As/maxresdefault.jpg">
+            <source media="(min-width: 320px)" srcset="https://i.ytimg.com/vi/rAzHvYnQ8DY/hqdefault.jpg">
+            <source media="(min-width: 10px)" srcset="https://i.ytimg.com/vi/HN1UjzRSdBk/mqdefault.jpg">
+
+            <!-- Img padrão se tudo der errado -->
             <img src="https://i.ytimg.com/vi/GykTLqODQuU/hqdefault.jpg" />
-          </div>
+          </picture>
           <div class="content">
             <p class="title text--medium">
               Formulário Animado com JS puro e CSS Animation | Mayk Brito
