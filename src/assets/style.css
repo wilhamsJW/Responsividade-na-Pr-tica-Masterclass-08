@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+/*  A cada 1rem será considerado 10px pq foi definido uma font-size de 62.5% | Definir um font-size no html siginifica dizer q é uma font-size root e todas as outras definições do projeto usarão por base essa definição, colocada em porcentagem para que nada fique fixo e seja responsivo para mobile e desktop, se por ventura haver alguma alteração nessa font-size do html, ela implicará com todas as outras font do projeto
+  O legal de trabalhar com a font-size definido em porcetagem é que temos um parâmetro para medir o rem e não precisamos ficar calculando o tempo todo o rem pq sabem que 1rem equivale a 10px
+  
+  Trabalhar com as fonts dessa forma faz com que todos os texto existente fiquem fluídos de acordo a viewport e no mobile é só dimiuir a font-size do html q automaticamente irá diminuir todas as fonts. Como se mostra abaixo no media queries
+  
+  Obs: O ideal que a unidade de medida rem seja aplicada em todo o projeto ao invés de px para que fique tudo maisfluído e flexível
+  */
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Source Sans Pro";
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+header {
+  background-color: #7159c1;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+header img {
+  width: 150px;
+  margin-left: 20px;
+  padding: 15px 0;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  padding: 2.4rem;
+  transition: all 250ms linear 0s;
+}
+
+header nav ul li a:hover {
+  background: rgba(255,255,255, 0.15)
+}
+
+h2 {
+  color: rgb(75, 75, 75);
+/*   font-size: 36px; para cada 1rem será considerado 10px, isso foi definido no html acima, font-size: 62.5%, vamos trabalhar com rem pq é mais flexível que o pixel ou px*/
+  font-size: 3.6rem;
+  line-height: 4.6rem;
+}
+
+h3 {
+  color: rgb(75, 75, 75);
+  font-size: 2.8rem;
+  line-height: 3.8rem;
+}
+
+.button {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgb(113, 89, 193);
+  margin: 15px 0px 0px;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 150ms linear 0s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+
+/*=============== 
+HERO
+==================*/
+section.hero {
+  margin: 80px 0;
+  display: flex;
+}
+
+section.hero .container {
+  width: 980px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+section.hero p {
+  color: rgb(154, 142, 191);
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+  margin: 10px 0px 0px;
+}
+
+
+
+/*=============== 
+MAIN
+==================*/
+main {
+  margin-bottom: 80px;
+}
+/*=============== 
+CARDS
+==================*/
+.cards {
+  width: 90%;
+  max-width: 980px;
+  margin: auto;
+
+  display: grid;
+/*   grid-template-columns: 1fr 1fr 1fr; Esse modo é o correto determinando 3 colunas de 1fr flexíveis, porém não será responsivo */
+  
+/*   grid-template-columns: repeat(3, minmax(250px, 1fr)); Aqui determinamos 3 colunas como no mínimo 250px e no máximo 1fr, isso faz com que no mobile as colunas não fique bem fininhas e sim tenha o mínimo de 250px, mas isso ainda não é o correto pq não ficará totalmente responsivo */
+  
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Fazendo dessa forma fica responsivo para mobile e desktop e não há necessidade de usar mediaqueries, pelo menos nesse trecho de código */
+  grid-gap: 20px;
+  
+/*
+  ******* Perguntas sobre repeat(auto-fit, minmax(180px, 1fr)); *******
+1 - Como funciona o auto-fit? 
+  O auto-fit irá expandir os elementos de acordo com a viewport, preechendo todos os espaços.
+  
+2 - Como funciona o auto-fit dentro de um grid-template-column?
+  Juntamente da função repeat() e minmax() eles conseguem definir as colunas de forma automática de acordo com a viewport, então vc não precisa definir coluna, auto-fit irá definir isso para todas as viewport.
+  
+3 - Como será essa definição de coluna?
+  Essa definição será feita de acordo com o minmax(), quando se coloca o mínimo permitido estou dizendo a largura mínima que a coluna irá ficar (isso é visível no mobile), quando declaro a largura máxima estou dizendo o espaço total que minhas colunas tem para se adequar e formarem colunas (isso é visével no dektop), se a largura máxima for muito grande irá ter mais colunas, se vc diminui a largura máxima irá ter menos colunas, dessa forma vc consegue controlar as colunas e decidir quantas colunas terão no desktop, basta aumentar o máximo ou diminuir o máximo e ver quantas colunas tem 
+*/
+}
+
+.text--medium {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  font-weight: 400;
+  color: #ecf0f1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #7159c1;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.image {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+
+  overflow: hidden;
+  position: relative;
+}
+
+.image img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  margin: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  align-self: end;
+  align-items: center;
+}
+
+.price {
+  margin-left: auto;
+  padding: 5px 20px;
+  border-radius: 20px;
+  background-color: #7159c1;
+  filter: brightness(90%);
+}
+
+/*=============== 
+MODAL
+==================*/
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  background-color: #fff;
+  
+  width: 800px;
+  height: 400px;
+  
+  margin: 0 auto;
+  padding: 10px;
+  
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transform: scale(1.2);
+}
+.modal .close-modal {
+  position: absolute;
+  cursor: pointer;
+
+  top: 5px;
+  right: 15px;
+  
+  opacity: 0;
+  
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition-delay: 0.3s;
+}
+.modal .close-modal svg {
+  width: 18px;
+  height: 18px;
+}
+.modal .modal-content {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition-delay: 0.3s;
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+.modal.active .modal-content {
+  opacity: 1;
+}
+.modal.active .close-modal {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+  background-color: white;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/*=============== 
+FORM
+==================*/
+#form {
+  width:100%;
+
+  background: #7159c1;
+  padding: 80px 0;
+  margin:0;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#form form {
+  width: 980px;
+  background: white;
+  
+  padding: 40px;
+  
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.15), 
+    0px 10px 20px -10px rgba(0, 0, 0, 0.1)
+}
+
+#form h3 {
+  margin-bottom: 30px
+}
+
+#form form label {
+  display: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-group label.right-inline {
+  text-align: center;  
+  padding-right: 8px;
+  padding-left: 10px;
+  width: auto;
+}
+
+.form-group .input-control {
+  flex: 1 1;
+  display: block;
+  margin: -4px 8px 10px;
+  padding: 12px;
+  font-size: 1.6rem;
+}
+
+#form .button {
+  margin: 20px 8px 10px;
+}
+
+/*                                          Responsividade Mobile com media queries
+
+768px ou 48em é uma viwport de tablet e celular, então as regras implementas aqui só serão válidas de 0px a 768px, se passar disso será implementado layout acima
+
+*/
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%; /* Diminuido a font-size do texto do mobile para que fique menor as letras e não tão grande como as de um desktop, essa é uma grande sacada de ter usado o html como root do font-size e utilizado a unidade de medir de rem ao invés de px, tivemos uma facilidade muito grande para diminuitr o texto para mobile */
+  }
+}
+
+@media (max-width: 630px) {
+  .form-group {
+    display: block;
+  }
+}
+
+@media (max-width: 630px) {
+  nav {
+    display: none;
+  }
+  
+  .one,
+  .two,
+  .three {
+    background-color: #fff;
+    height: 5px;
+    width: 100%;
+    margin: 6px auto;
+    
+    transition-duration: .4s; /* Transição para dar o efeito de que a barrinha se mecheu */
+  }
+  
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+    margin-right: 20px;
+  }
+  
+  
+  
+                                        /* fullScreen - Fazer menu mobile clikável */
+  
+  
+  
+  .menu-section.on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7159c1;
+    z-index: 1; /* para que o menu sempre fique na frente do conteúdo do site, se o número não for suficiente, coloque um número maior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .menu-section.on nav { /* HAbilitando as opções do menu para q apareçam quando for clikada, o clik fazemos via JS */
+    display: block;
+  }
+  
+  .menu-section.on .menu-toggle {
+    position: absolute;
+    right: 2.5rem;
+    top: 15px;
+  }
+  
+/*  FAzer com que ao clikar no menu apareça um 'X' para o user fechar o menu */
+  .menu-section.on .menu-toggle .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+  
+/*   retirando a barrinha do meio do mobile, para que fique só a 1° e a 3º em forma de "X" */
+  .menu-section.on .menu-toggle .two {
+/*     display: none; Poderíamos sumir com essa propriedade mas decidir fazer colocando o opacity:0 para q haja uma transição para que de a impressão que a barrinha se mecheu */
+    opacity: 0;
+  }
+  
+/*  Fazendo com que a 3º barrinha se movimente e fique parecido com um "X" juntamente com a barrinha 1º  */
+  .menu-section.on .menu-toggle .three {
+    transform: rotate(-45deg) translate(8px, -9px);
+  }
+  
+  .menu-section.on nav ul {
+    text-align: center;
+    display: block;
+     margin-bottom: 5rem;
+  }
+  
+  .menu-section.on nav ul a {
+    transition-duration: 0.5s;
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+}
+
+/* Para alguns celulares antigos bem pequeno e estreito */
+@media (max-width:240px) {
+  #form h3 {
+    font-size: 2rem;
+  }
+  .cards {
+    grid-template-columns: 22rem
+  }
+}
+
+/* Print Css */
+
+
+
+
+/* Olhe no arquivo JS, lá fizemos o botão do mobile ficar dinamico, com esse código abaixo:
+
+// Menu responsivo
+
+const menuSection = document.querySelector('.menu-section')
+const menuToggle = menuSection.querySelector('.menu-toggle')
+
+// classList.toggle = É nativo do JS e serve para alterar class, ele altera a class para on e off dinamicamente após escutar um determinado evento que nesse caso usamos o clik
+
+menuToggle.addEventListener('click', () => {
+  menuSection.classList.toggle('on')
+}) */
