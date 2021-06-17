@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" /> 
+
+    <!-- Código para impressão, para que o user possa imprimir a página do site de uma melhor forma
+        media="print" = entende que se trata de impressão
+    -->
+    <link rel="stylesheet" href="print.css" media="print" />
+
+    <link rel="stylesheet" href="responsive.css" media="screen and (max-width: 768px)" />
+    <!-- media="(max-width: 768px)" = dessa forma não precisa no arquivo css informar o max-width pq já
+    está sendo definido aqui, o screen é para garantir q ele realmente vai aplicar.
+    isso é legal para quando há um único max-width mas como estamos usando vários, não vale tanto a pena    
+-->
+
 <!--   Meta abaixo é extremamente importante para em todas as estruturas Html
 content="width=device-width = A largura da minhá página é a largura do meu dispositivo 
-initial-scale=1.0 = irá começar na escala 1.0 , se por ventura isso aqui for alterado irá aumentar todos os elementos da página do mobile, talvez seja necessário se ficar muito pequeno no mobile, porém é algo q talvez não seja alterado. 
+initial-scale=1.0 = irá começar na escala 1.0 , se por ventura isso aqui for alterado irá aumentar todos os elementos
+da página do mobile, talvez seja necessário se ficar muito pequeno no mobile, porém é algo
+q talvez não seja alterado. 
 -->
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link rel="stylesheet" href="" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <header>

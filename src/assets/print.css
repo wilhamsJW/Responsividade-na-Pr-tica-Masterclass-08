@@ -1,0 +1,22 @@
+/* O css aplicado aqui será usado para caso o usuário deseje imprimir a página
+    valores como header, hero, image... são elementos q desejo q não sejam imprimidos
+*/
+
+header, .hero, .image, #form {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cards {
+    display: block; /* apenas para os carda ficarem um abaixo do outro */
+}
+
+.card {
+    border-bottom: 1px solid; /* linha para separar os cards */
+    color: black;
+}
+
+.text--medium {
+    color: black
+}
