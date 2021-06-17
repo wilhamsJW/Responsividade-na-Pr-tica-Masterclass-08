@@ -187,6 +187,12 @@ CARDS
   position: relative;
 }
 
+      /************* 
+      ** Importante **
+      **************/
+      /* Esta configuraçaõ abaixo é muito importante para definição de img, já passei dias
+      sem saber o q fazer com a img quebrada dentro da div, possivelvemnte essas propriedades
+      vão resolver a maioria dos problemas com img */
 .image img {
   width: 100%;
   position: absolute;
