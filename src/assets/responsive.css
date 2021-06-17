@@ -1,0 +1,128 @@
+/*                                          Responsividade Mobile com media queries
+
+768px ou 48em é uma viwport de tablet e celular, então as regras implementas aqui só serão válidas de 0px a 768px, se passar disso será implementado layout acima
+
+*/
+
+@media (max-width: 768px) {
+    html {
+      font-size: 50%; /* Diminuido a font-size do texto do mobile para que fique menor as letras e não tão grande como as de um desktop, essa é uma grande sacada de ter usado o html como root do font-size e utilizado a unidade de medir de rem ao invés de px, tivemos uma facilidade muito grande para diminuitr o texto para mobile */
+    }
+  }
+  
+  @media (max-width: 630px) {
+    .form-group {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 630px) {
+    nav {
+      display: none;
+    }
+    
+    .one,
+    .two,
+    .three {
+      background-color: #fff;
+      height: 5px;
+      width: 100%;
+      margin: 6px auto;
+      
+      transition-duration: .4s; /* Transição para dar o efeito de que a barrinha se mecheu */
+    }
+    
+    .menu-toggle {
+      width: 40px;
+      height: 30px;
+      margin-right: 20px;
+    }
+    
+    
+    
+                                          /* fullScreen - Fazer menu mobile clikável */
+    
+    
+    
+    .menu-section.on {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #7159c1;
+      z-index: 1; /* para que o menu sempre fique na frente do conteúdo do site, se o número não for suficiente, coloque um número maior */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+    
+    .menu-section.on nav { /* HAbilitando as opções do menu para q apareçam quando for clikada, o clik fazemos via JS */
+      display: block;
+    }
+    
+    .menu-section.on .menu-toggle {
+      position: absolute;
+      right: 2.5rem;
+      top: 15px;
+    }
+    
+  /*  FAzer com que ao clikar no menu apareça um 'X' para o user fechar o menu */
+    .menu-section.on .menu-toggle .one {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+    
+  /*   retirando a barrinha do meio do mobile, para que fique só a 1° e a 3º em forma de "X" */
+    .menu-section.on .menu-toggle .two {
+  /*     display: none; Poderíamos sumir com essa propriedade mas decidir fazer colocando o opacity:0 para q haja uma transição para que de a impressão que a barrinha se mecheu */
+      opacity: 0;
+    }
+    
+  /*  Fazendo com que a 3º barrinha se movimente e fique parecido com um "X" juntamente com a barrinha 1º  */
+    .menu-section.on .menu-toggle .three {
+      transform: rotate(-45deg) translate(8px, -9px);
+    }
+    
+    .menu-section.on nav ul {
+      text-align: center;
+      display: block;
+       margin-bottom: 5rem;
+    }
+    
+    .menu-section.on nav ul a {
+      transition-duration: 0.5s;
+      font-size: 3rem;
+      line-height: 4rem;
+      font-weight: bold;
+      display: block;
+    }
+    
+  }
+  
+  /* Para alguns celulares antigos bem pequeno e estreito */
+  @media (max-width:240px) {
+    #form h3 {
+      font-size: 2rem;
+    }
+    .cards {
+      grid-template-columns: 22rem
+    }
+  }
+  
+  /* Print Css */
+  
+  
+  
+  
+  /* Olhe no arquivo JS, lá fizemos o botão do mobile ficar dinamico, com esse código abaixo:
+  
+  // Menu responsivo
+  
+  const menuSection = document.querySelector('.menu-section')
+  const menuToggle = menuSection.querySelector('.menu-toggle')
+  
+  // classList.toggle = É nativo do JS e serve para alterar class, ele altera a class para on e off dinamicamente após escutar um determinado evento que nesse caso usamos o clik
+  
+  menuToggle.addEventListener('click', () => {
+    menuSection.classList.toggle('on')
+  }) */
